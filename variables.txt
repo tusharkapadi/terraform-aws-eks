@@ -1,0 +1,26 @@
+cluster_name = "harness-build-infra
+cluster_version = "1.32"
+
+# networking
+cluster_endpoint_public_access = true
+vpc_id = "vpc-123"
+subnet_ids = [
+  "subnet-123456"
+]
+
+# permissions
+## give yourself access to the cluster
+enable_cluster_creator_admin_permissions = true
+
+# compute
+eks_managed_node_groups = {
+  one = {
+    name = "node-group-1"
+
+    instance_types = ["t3.small"]
+
+    min_size     = 1
+    max_size     = 1
+    desired_size = 1
+  }
+}
